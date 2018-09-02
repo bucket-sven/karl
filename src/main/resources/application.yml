@@ -1,0 +1,73 @@
+spring:
+  jpa:
+    show-sql: true
+#    properties:
+#      jadira:
+#        usertype:
+#        autoRegisterUserTypes: true
+    hibernate:
+      use-new-id-generator-mappings: false
+#      ddl-auto: create
+#    generate-ddl: true
+#    open-in-view: true
+
+  freemarker:
+    settings:
+      datetime_format: yyyy-MM-dd HH:mm:ss
+      date_format: yyyy-MM-dd
+      time_format: HH:mm:ss
+      template_update_delay: 0
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+
+  cache:
+    ehcache:
+      config: classpath:ehcache.xml
+    type: ehcache
+  datasource:
+    url: jdbc:mysql://localhost:3306/karl?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password:
+
+  mvc:
+    pathmatch:
+      use-suffix-pattern: true
+
+logging:
+  config: classpath:logback.xml
+
+shiro:
+  login-url: /login.html
+  success-url: /index.html
+  unauthorized-url: /
+  filterChainDefinitions:
+    anon:
+      - /login
+      - /login/**
+      - /css/**
+      - /fonts/**
+      - /img/**
+      - /js/**
+    logout:
+      - /logout
+    authc:
+      - /**
+
+karl:
+  realm: org.bucket.karl.configuration.shiro.realm.UserRealm
+  freemarker:
+    settings:
+      function-type:
+        "1": 分类
+        "2": 菜单
+        "3": 连接
+        "4": 按钮
+    variables:
+      basename: karl.system
+      default-role: 3
+      base-url: http://127.0.0.1/
+#  frame:
+#    variables: \u914D\u7F6E
+
