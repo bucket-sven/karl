@@ -29,7 +29,7 @@ class KarlApplication : WebMvcConfigurer {
     }
 
     @Bean
-    fun registFiler(): FilterRegistrationBean<Filter> {
+    fun registerFilter(): FilterRegistrationBean<Filter> {
         val registration = FilterRegistrationBean<Filter>()
         registration.filter = OpenEntityManagerInViewFilter()
         registration.addUrlPatterns("/*")

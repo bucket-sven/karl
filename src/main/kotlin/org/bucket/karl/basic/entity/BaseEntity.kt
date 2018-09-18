@@ -35,6 +35,6 @@ abstract class BaseEntity : Serializable {
         const val DEL_FLAG_NORMAL = "0"
         const val DEL_FLAG_DELETE = "1"
         const val DEL_FLAG_AUDIT = "2"
-        private val serialVersionUID = -67188388306700736L
+        const val serialVersionUID = -67188388306700736L
     }
 }
